@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "566465789964",
+    "project_id": "fashions-ecom",
+    "storage_bucket": "fashions-ecom.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566465789964:android:657f0637b2a6e23d452e29",
+        "android_client_info": {
+          "package_name": "com.project.fashions_ecom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeJCqfCduR0iX-tEkNQgscfpoLwmHPQLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

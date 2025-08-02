@@ -6,6 +6,7 @@ import 'package:facebook_clone/home_fb_view.dart';
 import 'package:facebook_clone/home_view.dart';
 import 'package:facebook_clone/login1.dart';
 import 'package:facebook_clone/extras/login_view.dart';
+import 'package:facebook_clone/login_more.dart';
 import 'package:facebook_clone/post_view.dart';
 import 'package:facebook_clone/contactApp/splash_view.dart';
 import 'package:facebook_clone/posts_view.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: ReelNewLogin(),
+      home: LoginMore(),
+      // ReelNewLogin(),
       // ReelWelcomeview(),
       // ReelLoginView(),
       // WelcomeView(),
