@@ -1,6 +1,7 @@
 import 'package:fashions_ecom/cart_view.dart';
 import 'package:fashions_ecom/dashboard_view.dart';
-import 'package:fashions_ecom/home_page.dart';
+import 'package:fashions_ecom/dashboard_view1.dart';
+import 'package:fashions_ecom/extras/home_page.dart';
 import 'package:fashions_ecom/login_view.dart';
 import 'package:fashions_ecom/notification_view.dart';
 import 'package:fashions_ecom/profile_view.dart';
@@ -21,7 +22,8 @@ class _TabBarNavigationState extends State<TabBarNavigation> {
     // AddtocartScreen(),
     // NotificationScreen(),
     // ProfileScreen()
-    HomePage(),
+    //HomePage(),
+    DashboardView1(),
     CartView(),
     NotificationView(),
     ProfileView()
@@ -53,7 +55,6 @@ class _TabBarNavigationState extends State<TabBarNavigation> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(icons.length, (index) {
               bool isSelected = selectedIndex == index;
-
               return GestureDetector(
                 onTap: () {
                   setState(() {

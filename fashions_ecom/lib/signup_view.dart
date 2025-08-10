@@ -1,4 +1,5 @@
 import 'package:fashions_ecom/login_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignupView extends StatelessWidget {
@@ -137,11 +138,13 @@ class SignupView extends StatelessWidget {
                     foregroundColor: Colors.white, // Text and icon color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => LoginView()),
-                    );
+                    signup(context);
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (BuildContext context) => LoginView()),
+                    // );
                   },
                   child: Text(
                     "Login",
@@ -157,20 +160,43 @@ class SignupView extends StatelessWidget {
     );
   }
 
-  login(context) {
+//  login(context) {
+  signup(context) async {
+    String chkUser = userNameController.text;
     String chkEmail = emailPhoneController.text;
     String chkPasw = passwordController.text;
+    String chkConfPasw = passwordConfirmController.text;
     print(emailPhoneController.text);
     print('');
-    if (chkEmail == 'abc' && chkPasw == 'abc') {
-      print('Login Successful');
 
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => TabBarClass()),
-      // );
-    } else {
-      print('Login Failed');
+    try {
+      final credentials = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: chkEmail, password: chkPasw);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginView()),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
     }
+    // ------------- comment for firebase auth --------------------
+    // if (chkEmail == 'abc' && chkPasw == 'abc') {
+    //   print('Login Successful');
+    //
+    //   // Navigator.push(
+    //   //   context,
+    //   //   MaterialPageRoute(
+    //   //       builder: (BuildContext context) => LoginView()),
+    //   // );
+    // } else {
+    //   print('Login Failed');
+    // }
+    // ------------- comment for firebase auth --------------------
   }
 }

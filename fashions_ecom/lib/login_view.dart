@@ -240,16 +240,18 @@ class LoginView extends StatelessWidget {
     // ------------- comment for firebase auth --------------------
     try {
       final credentials = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: chkEmail, password: chkPasw);
+          .signInWithEmailAndPassword(email: chkEmail, password: chkPasw);
+
+//          .createUserWithEmailAndPassword(email: chkEmail, password: chkPasw);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginSuccessfulView()),
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+      if (e.code == 'invalid-email') {
+        print('The email is invalid.');
+      } else if (e.code == 'invalid-password') {
+        print('The password is invalid.');
       }
     } catch (e) {
       print(e);

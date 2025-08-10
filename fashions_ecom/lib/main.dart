@@ -1,12 +1,13 @@
+import 'package:fashions_ecom/extras/DiscountCardList.dart';
 import 'package:fashions_ecom/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fashions_ecom/My_Home_Screen.dart';
-import 'package:fashions_ecom/NavTabBar.dart';
+import 'package:fashions_ecom/extras/My_Home_Screen.dart';
+import 'package:fashions_ecom/extras/NavTabBar.dart';
 import 'package:fashions_ecom/cart_view.dart';
 import 'package:fashions_ecom/dashboard_view.dart';
-import 'package:fashions_ecom/home_page.dart';
+import 'package:fashions_ecom/extras/home_page.dart';
 import 'package:fashions_ecom/notification_view.dart';
-import 'package:fashions_ecom/productdetail_view.dart';
+import 'package:fashions_ecom/extras/productdetail_view.dart';
 import 'package:fashions_ecom/sneaker_carousel_imageview.dart';
 import 'package:fashions_ecom/splash_view.dart';
 import 'package:fashions_ecom/tabbar_view.dart';
@@ -31,9 +32,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: //HomePage(),
-          // DashboardView(),
-          SplashView(),
+      home: SplashView(),
+      //HomePage(),
+      //DiscountCardList(),
+      //DashboardView(),
       //TabBarNavigation(),
       //NavTabBar(),
       //CartView(),
